@@ -111,7 +111,7 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
           <img src={close} alt="Close" />
         </button>
       </div>
-    </div >
+    </div>
   );
 }
 

@@ -19,7 +19,6 @@ describe("Dappazon", () => {
   beforeEach(async () => {
     //setup accounts
     [deployer, buyer] = await ethers.getSigners()
-
     //deploy contract
     const Dappazon = await ethers.getContractFactory("Dappazon")
     dappazon = await Dappazon.deploy()

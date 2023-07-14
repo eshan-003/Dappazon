@@ -33,10 +33,10 @@ function App() {
     //Connect blockchain
     const provider=new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
-
     const network=await provider.getNetwork()
-
+    console.log(Dappazon)
     //Coonect smart contracts and create their js versions
+    console.log(config[network.chainId].dappazon.address)
     const dappazon = new ethers.Contract(config[network.chainId].dappazon.address, Dappazon, provider)
     setDappazon(dappazon)
 
@@ -48,6 +48,7 @@ function App() {
       const item = await dappazon.items(i + 1)
       items.push(item)
     }
+    console.log(items)
     const electronics = items.filter((item) => item.category === 'electronics')
     const clothing = items.filter((item) => item.category === 'clothing')
     const toys = items.filter((item) => item.category === 'toys')
