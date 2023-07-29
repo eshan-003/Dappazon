@@ -4,6 +4,7 @@ pragma solidity ^0.8.9;
 contract Dappazon {
     address public owner;
 
+    //Defining the item structure
     struct Item {
         uint256 id;
         string name;
@@ -14,13 +15,17 @@ contract Dappazon {
         uint256 stock;
     }
 
+    //Defining the order structure
     struct Order {
         uint256 time;
         Item item;
     }
+
+    //Defining of events to be emitted on listing or buying of items
     event List(string name, uint256 cost, uint256 quantity);
     event Buy(address buyer, uint256 orderId, uint256 itemId);
-
+    
+    //defining required mappings
     mapping(uint256 => Item) public items;
     mapping(address => mapping(uint256 => Order)) public orders;
     mapping(address => uint256) public orderCount;
